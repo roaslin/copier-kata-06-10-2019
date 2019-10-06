@@ -24,12 +24,13 @@ public class CopierShould {
 
     @Test
     public void copy_characters_from_source_to_destination() {
-        char copiedChar = 'C';
-        given(iSource.getChar()).willReturn(copiedChar);
+        given(iSource.getChar()).willReturn('T','E', 'S', 'T', ' ');
 
         copier.copy();
 
-        verify(iSource, times(1)).getChar();
-        verify(iDestination, times(1)).setChar(copiedChar);
+        verify(iSource, times(5)).getChar();
+        verify(iDestination, times(2)).setChar('T');
+        verify(iDestination).setChar('E');
+        verify(iDestination).setChar('S');
     }
 }

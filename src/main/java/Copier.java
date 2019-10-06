@@ -8,7 +8,9 @@ public class Copier {
     }
 
     public void copy() {
-        char copiedChar = source.getChar();
-        iDestination.setChar(copiedChar);
+        char copiedChar;
+        while((copiedChar = source.getChar()) != ' '){
+            iDestination.setChar(copiedChar);
+        }
     }
 }
